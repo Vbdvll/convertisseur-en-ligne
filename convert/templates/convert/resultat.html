@@ -2,8 +2,16 @@
 {% block content %}
 
 
-<!-- {% if res} -->
-<p>le resultat de la conversioin est: <strong>{{res}}</strong></p>
-<p><a href="{%url 'accueil' %}">retour</a></p>
+{% if res is not None %}
+    <p>le resultat de la conversioin est: <strong>{{res}}</strong></p>
+    <p><a href="{%url 'accueil' %}">retour</a></p>
+{% elif error %}
+    <p style="color: red;">Erreur : <strong>{{ error }}</strong></p>
+    <p><a href="{% url 'accueil' %}">Retour</a></p>
+{% else %}
+    <p>Veuillez entrer un nombre correcte à convertir en respectant la base aussi</p>
+    <p><a href="{% url 'accueil' %}">Retour</a></p>
+{% endif %}
+
 
 {% endblock %}
