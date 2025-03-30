@@ -20,6 +20,6 @@ from convert import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accueil/',views.Accueil),
-    path('resultat/',views.resultat)
+    path('accueil/',views.Accueil,name='accueil'),
+    path('resultat/',views.resultat,name='resultat')
 ]

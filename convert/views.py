@@ -7,9 +7,12 @@ def Accueil(request):
         convType=request.POST.get("conv_type")
         if(convType=="bin_to_dec"):
             res=int(nombre,2)
-        else:
+        elif (convType=="dec_to_bin"):
             res=bin(int(nombre))
+        else:
+            res="Erreur de conversion"
         return render(request,"convert/resultat.html",{"res": res})
-    return render(request,"convert/index.html")
+    else:
+        render(request,"convert/resultat.html")
 def resultat(request):
     return render(request,"convert/resultat.html")

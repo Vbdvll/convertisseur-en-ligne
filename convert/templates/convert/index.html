@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-</head>
-<body>
-    <p>Bienvenu sur votre convertisseur en ligne</p>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="nombre" placeholder="Entrer un nombre">
-        <select name="conv_type">
+{% extends 'convert/base.html' %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="number" name="nombre" placeholder="Entrer un nombre">
+    <select name="conv_type">
             <option value="bin_to_dec">Binaire → Décimal</option>
             <option value="dec_to_bin">Décimal → Binaire</option>
-        </select>
-        <button type="submit">Convertir</button>
-    </form>
-</body>
-</html>
+    </select>
+    <button type="submit">Convertir</button>
+</form>
+
+{% endblock %}
